@@ -1,0 +1,423 @@
+<html lang="en" data-critters-container="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Công Cụ Khảo Sát - Tính Chi Phí Lắp Đặt Điện Mặt Trời Áp Mái - DMT Solar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="DMT Solar">
+    <meta property="og:site_name" content="DMT Solar">
+    <meta name="description" content="Công Cụ Khảo Sát Hiệu Quả Đầu Tư Lắp Điện Năng Lượng Mặt Trời Hòa Lưới Áp Mái">
+    <link rel="icon" type="image/x-icon" href="https://dmtsolar.com/template/dmt/icons/dmt_favicon_180.png">
+    <style>
+        @charset "UTF-8";
+
+        :root {
+            --bs-blue: #0d6efd;
+            --bs-indigo: #6610f2;
+            --bs-purple: #6f42c1;
+            --bs-pink: #d63384;
+            --bs-red: #dc3545;
+            --bs-orange: #fd7e14;
+            --bs-yellow: #ffc107;
+            --bs-green: #198754;
+            --bs-teal: #20c997;
+            --bs-cyan: #0dcaf0;
+            --bs-black: #000;
+            --bs-white: #fff;
+            --bs-gray: #6c757d;
+            --bs-gray-dark: #343a40;
+            --bs-gray-100: #f8f9fa;
+            --bs-gray-200: #e9ecef;
+            --bs-gray-300: #dee2e6;
+            --bs-gray-400: #ced4da;
+            --bs-gray-500: #adb5bd;
+            --bs-gray-600: #6c757d;
+            --bs-gray-700: #495057;
+            --bs-gray-800: #343a40;
+            --bs-gray-900: #212529;
+            --bs-primary: #0d6efd;
+            --bs-secondary: #6c757d;
+            --bs-success: #198754;
+            --bs-info: #0dcaf0;
+            --bs-warning: #ffc107;
+            --bs-danger: #dc3545;
+            --bs-light: #f8f9fa;
+            --bs-dark: #212529;
+            --bs-primary-rgb: 13, 110, 253;
+            --bs-secondary-rgb: 108, 117, 125;
+            --bs-success-rgb: 25, 135, 84;
+            --bs-info-rgb: 13, 202, 240;
+            --bs-warning-rgb: 255, 193, 7;
+            --bs-danger-rgb: 220, 53, 69;
+            --bs-light-rgb: 248, 249, 250;
+            --bs-dark-rgb: 33, 37, 41;
+            --bs-primary-text-emphasis: #052c65;
+            --bs-secondary-text-emphasis: #2b2f32;
+            --bs-success-text-emphasis: #0a3622;
+            --bs-info-text-emphasis: #055160;
+            --bs-warning-text-emphasis: #664d03;
+            --bs-danger-text-emphasis: #58151c;
+            --bs-light-text-emphasis: #495057;
+            --bs-dark-text-emphasis: #495057;
+            --bs-primary-bg-subtle: #cfe2ff;
+            --bs-secondary-bg-subtle: #e2e3e5;
+            --bs-success-bg-subtle: #d1e7dd;
+            --bs-info-bg-subtle: #cff4fc;
+            --bs-warning-bg-subtle: #fff3cd;
+            --bs-danger-bg-subtle: #f8d7da;
+            --bs-light-bg-subtle: #fcfcfd;
+            --bs-dark-bg-subtle: #ced4da;
+            --bs-primary-border-subtle: #9ec5fe;
+            --bs-secondary-border-subtle: #c4c8cb;
+            --bs-success-border-subtle: #a3cfbb;
+            --bs-info-border-subtle: #9eeaf9;
+            --bs-warning-border-subtle: #ffe69c;
+            --bs-danger-border-subtle: #f1aeb5;
+            --bs-light-border-subtle: #e9ecef;
+            --bs-dark-border-subtle: #adb5bd;
+            --bs-white-rgb: 255, 255, 255;
+            --bs-black-rgb: 0, 0, 0;
+            --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+            --bs-body-font-family: var(--bs-font-sans-serif);
+            --bs-body-font-size: 1rem;
+            --bs-body-font-weight: 400;
+            --bs-body-line-height: 1.5;
+            --bs-body-color: #212529;
+            --bs-body-color-rgb: 33, 37, 41;
+            --bs-body-bg: #fff;
+            --bs-body-bg-rgb: 255, 255, 255;
+            --bs-emphasis-color: #000;
+            --bs-emphasis-color-rgb: 0, 0, 0;
+            --bs-secondary-color: rgba(33, 37, 41, .75);
+            --bs-secondary-color-rgb: 33, 37, 41;
+            --bs-secondary-bg: #e9ecef;
+            --bs-secondary-bg-rgb: 233, 236, 239;
+            --bs-tertiary-color: rgba(33, 37, 41, .5);
+            --bs-tertiary-color-rgb: 33, 37, 41;
+            --bs-tertiary-bg: #f8f9fa;
+            --bs-tertiary-bg-rgb: 248, 249, 250;
+            --bs-heading-color: inherit;
+            --bs-link-color: #0d6efd;
+            --bs-link-color-rgb: 13, 110, 253;
+            --bs-link-decoration: underline;
+            --bs-link-hover-color: #0a58ca;
+            --bs-link-hover-color-rgb: 10, 88, 202;
+            --bs-code-color: #d63384;
+            --bs-highlight-color: #212529;
+            --bs-highlight-bg: #fff3cd;
+            --bs-border-width: 1px;
+            --bs-border-style: solid;
+            --bs-border-color: #dee2e6;
+            --bs-border-color-translucent: rgba(0, 0, 0, .175);
+            --bs-border-radius: .375rem;
+            --bs-border-radius-sm: .25rem;
+            --bs-border-radius-lg: .5rem;
+            --bs-border-radius-xl: 1rem;
+            --bs-border-radius-xxl: 2rem;
+            --bs-border-radius-2xl: var(--bs-border-radius-xxl);
+            --bs-border-radius-pill: 50rem;
+            --bs-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+            --bs-box-shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
+            --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
+            --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, .075);
+            --bs-focus-ring-width: .25rem;
+            --bs-focus-ring-opacity: .25;
+            --bs-focus-ring-color: rgba(13, 110, 253, .25);
+            --bs-form-valid-color: #198754;
+            --bs-form-valid-border-color: #198754;
+            --bs-form-invalid-color: #dc3545;
+            --bs-form-invalid-border-color: #dc3545
+        }
+
+        @media (prefers-reduced-motion:no-preference) {
+            :root {
+                scroll-behavior: smooth
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--bs-body-font-family);
+            font-size: var(--bs-body-font-size);
+            font-weight: var(--bs-body-font-weight);
+            line-height: var(--bs-body-line-height);
+            color: var(--bs-body-color);
+            text-align: var(--bs-body-text-align);
+            background-color: var(--bs-body-bg);
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        :root {
+            --bs-breakpoint-xs: 0;
+            --bs-breakpoint-sm: 576px;
+            --bs-breakpoint-md: 768px;
+            --bs-breakpoint-lg: 992px;
+            --bs-breakpoint-xl: 1200px;
+            --bs-breakpoint-xxl: 1400px
+        }
+
+        body {
+            font-feature-settings: "tnum";
+            font-size: 14px
+        }
+
+        html {
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%
+        }
+
+        *,
+        :after,
+        :before {
+            box-sizing: border-box
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            --antd-wave-shadow-color: #1890ff;
+            --scroll-bar: 0
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji"
+        }
+
+        @-ms-viewport {
+            width: device-width
+        }
+
+        body {
+            margin: 0;
+            color: #000000d9;
+            font-variant: tabular-nums;
+            line-height: 1.5715;
+            background-color: #fff
+        }
+
+        body {
+            background-color: #f8f8f8
+        }
+    </style>
+    <link rel="stylesheet" href="./css/styles-OWIPSSO6.css" media="all" onload="this.media='all'"><noscript>
+        <link rel="stylesheet" href="./css/styles-OWIPSSO6.css">
+    </noscript>
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <app-root _nghost-ng-c3984273398="" ng-version="18.2.13"><router-outlet
+            _ngcontent-ng-c3984273398=""></router-outlet><app-solar-calculator _nghost-ng-c2100469606="">
+            <div _ngcontent-ng-c2100469606="">
+                <div _ngcontent-ng-c2100469606="" class="container mt-5">
+                    <div _ngcontent-ng-c2100469606=""
+                        class="d-flex flex-column justify-content-center align-items-center">
+                        <h5 _ngcontent-ng-c2100469606=""><img _ngcontent-ng-c2100469606="" width="30"
+                                src="https://dmtsolar.com/template/dmt/icons/dmt_favicon_180.png"> DMT Solar</h5>
+                        <h3 _ngcontent-ng-c2100469606="">Công Cụ Khảo Sát - Tính Chi Phí Lắp Điện Năng Lượng Mặt Trời Áp
+                            Mái</h3>
+                    </div>
+                </div>
+                <div _ngcontent-ng-c2100469606="" class="container mt-2">
+                    <div _ngcontent-ng-c2100469606="" class="card">
+                        <div _ngcontent-ng-c2100469606="" class="card-body p-3 p-md-5">
+                            <div _ngcontent-ng-c2100469606="" class="row">
+                                <div _ngcontent-ng-c2100469606="" class="col-12 col-md-8 mx-auto">
+                                    <div _ngcontent-ng-c2100469606="">
+                                        <form _ngcontent-ng-c2100469606="" novalidate="" nz-form="" nzlayout="vertical"
+                                            class="ant-form ng-untouched ng-pristine ng-valid ant-form-vertical">
+                                            <div _ngcontent-ng-c2100469606="" class="d-flex flex-column mb-4">
+                                                <div _ngcontent-ng-c2100469606="" class="mb-2">
+                                                    <h6 _ngcontent-ng-c2100469606="">Địa chỉ lắp đặt</h6>
+                                                </div>
+                                                <div _ngcontent-ng-c2100469606="" class="row">
+                                                    <div _ngcontent-ng-c2100469606="" class="col-12 col-md-4 mb-2">
+                                                        <div _ngcontent-ng-c2100469606="" class="mb-2">Tỉnh/Thành:</div>
+                                                        <nz-select _ngcontent-ng-c2100469606=""
+                                                            nzplaceholder="Nhập tỉnh/thành" nzsize="large"
+                                                            nzshowsearch=""
+                                                            class="ant-select w-100 ant-select-lg ant-select-show-arrow ant-select-show-search ant-select-single ng-untouched ng-pristine ng-valid ng-tns-c364634890-0"><nz-select-top-control
+                                                                cdkoverlayorigin=""
+                                                                class="ant-select-selector"><nz-select-search
+                                                                    class="ant-select-selection-search"><input
+                                                                        autocomplete="off"
+                                                                        class="ant-select-selection-search-input ng-untouched ng-pristine ng-valid"><!----></nz-select-search><!----><!----><!----><nz-select-placeholder
+                                                                    class="ant-select-selection-placeholder"> Nhập
+                                                                    tỉnh/thành
+                                                                    <!----><!----></nz-select-placeholder><!----></nz-select-top-control><nz-select-arrow
+                                                                class="ant-select-arrow"><!----><!----><!----><span
+                                                                    nz-icon="" nztype="down"
+                                                                    class="anticon anticon-down"><svg
+                                                                        viewBox="64 64 896 896" focusable="false"
+                                                                        fill="currentColor" width="1em" height="1em"
+                                                                        data-icon="down" aria-hidden="true">
+                                                                        <path
+                                                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                                        </path>
+                                                                    </svg></span><!----><!----><!----><!----><!----><!----></nz-select-arrow><!----><!----><!----></nz-select>
+                                                    </div>
+                                                    <div _ngcontent-ng-c2100469606="" class="col-12 col-md-4 mb-2">
+                                                        <div _ngcontent-ng-c2100469606="" class="mb-2">Quận/Huyện:</div>
+                                                        <nz-select _ngcontent-ng-c2100469606=""
+                                                            nzplaceholder="Nhập quận huyện" nzsize="large"
+                                                            nzshowsearch=""
+                                                            class="ant-select w-100 ant-select-lg ant-select-show-arrow ant-select-show-search ant-select-single ng-untouched ng-pristine ng-valid ng-tns-c364634890-1"><nz-select-top-control
+                                                                cdkoverlayorigin=""
+                                                                class="ant-select-selector"><nz-select-search
+                                                                    class="ant-select-selection-search"><input
+                                                                        autocomplete="off"
+                                                                        class="ant-select-selection-search-input ng-untouched ng-pristine ng-valid"><!----></nz-select-search><!----><!----><!----><nz-select-placeholder
+                                                                    class="ant-select-selection-placeholder"> Nhập quận
+                                                                    huyện
+                                                                    <!----><!----></nz-select-placeholder><!----></nz-select-top-control><nz-select-arrow
+                                                                class="ant-select-arrow"><!----><!----><!----><span
+                                                                    nz-icon="" nztype="down"
+                                                                    class="anticon anticon-down"><svg
+                                                                        viewBox="64 64 896 896" focusable="false"
+                                                                        fill="currentColor" width="1em" height="1em"
+                                                                        data-icon="down" aria-hidden="true">
+                                                                        <path
+                                                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                                        </path>
+                                                                    </svg></span><!----><!----><!----><!----><!----><!----></nz-select-arrow><!----><!----><!----></nz-select>
+                                                    </div>
+                                                    <div _ngcontent-ng-c2100469606="" class="col-12 col-md-4 mb-2">
+                                                        <div _ngcontent-ng-c2100469606="" class="mb-2">Phường/Xã:</div>
+                                                        <nz-select _ngcontent-ng-c2100469606=""
+                                                            nzplaceholder="Nhập phường xã" nzsize="large"
+                                                            nzshowsearch=""
+                                                            class="ant-select w-100 ant-select-lg ant-select-show-arrow ant-select-show-search ant-select-single ng-untouched ng-pristine ng-valid ng-tns-c364634890-2"><nz-select-top-control
+                                                                cdkoverlayorigin=""
+                                                                class="ant-select-selector"><nz-select-search
+                                                                    class="ant-select-selection-search"><input
+                                                                        autocomplete="off"
+                                                                        class="ant-select-selection-search-input ng-untouched ng-pristine ng-valid"><!----></nz-select-search><!----><!----><!----><nz-select-placeholder
+                                                                    class="ant-select-selection-placeholder"> Nhập
+                                                                    phường xã
+                                                                    <!----><!----></nz-select-placeholder><!----></nz-select-top-control><nz-select-arrow
+                                                                class="ant-select-arrow"><!----><!----><!----><span
+                                                                    nz-icon="" nztype="down"
+                                                                    class="anticon anticon-down"><svg
+                                                                        viewBox="64 64 896 896" focusable="false"
+                                                                        fill="currentColor" width="1em" height="1em"
+                                                                        data-icon="down" aria-hidden="true">
+                                                                        <path
+                                                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                                        </path>
+                                                                    </svg></span><!----><!----><!----><!----><!----><!----></nz-select-arrow><!----><!----><!----></nz-select>
+                                                    </div>
+                                                </div>
+                                            </div><nz-form-item _ngcontent-ng-c2100469606=""
+                                                class="ant-form-item ant-row mb-4"><nz-form-label
+                                                    _ngcontent-ng-c2100469606="" nzrequired="" nzfor="emails"
+                                                    class="ant-form-item-label ant-col"><label
+                                                        class="ant-form-item-required" for="emails">
+                                                        <h6 _ngcontent-ng-c2100469606="">Mục đích sử dụng điện</h6>
+                                                        <!---->
+                                                    </label></nz-form-label><nz-form-control
+                                                    _ngcontent-ng-c2100469606="" nzerrortip="Vui lòng chọn"
+                                                    class="ant-form-item-control ant-col ng-tns-c2837444922-3">
+                                                    <div class="ant-form-item-control-input">
+                                                        <div class="ant-form-item-control-input-content"><nz-radio-group
+                                                                _ngcontent-ng-c2100469606="" nzsize="large"
+                                                                nzbuttonstyle="solid"
+                                                                class="ant-radio-group ant-radio-group-large ant-radio-group-solid ng-untouched ng-pristine ng-valid"><label
+                                                                    _ngcontent-ng-c2100469606="" nz-radio-button=""
+                                                                    nzvalue="SinhHoat"
+                                                                    class="ant-radio-wrapper-in-form-item ant-radio-button-wrapper ant-radio-button-wrapper-checked"><span
+                                                                        class="ant-radio-button ant-radio-button-checked"><input
+                                                                            type="radio"
+                                                                            class="ant-radio-button-input"><span
+                                                                            class="ant-radio-button-inner"></span></span><span>Sinh
+                                                                        hoạt</span></label><label
+                                                                    _ngcontent-ng-c2100469606="" nz-radio-button=""
+                                                                    nzvalue="KinhDoanh"
+                                                                    class="ant-radio-wrapper-in-form-item ant-radio-button-wrapper"><span
+                                                                        class="ant-radio-button"><input type="radio"
+                                                                            class="ant-radio-button-input"><span
+                                                                            class="ant-radio-button-inner"></span></span><span>Kinh
+                                                                        doanh</span></label></nz-radio-group></div>
+                                                    </div><!----><!---->
+                                                </nz-form-control></nz-form-item>
+                                            <div _ngcontent-ng-c2100469606="" class="mb-4"><nz-form-item
+                                                    _ngcontent-ng-c2100469606=""
+                                                    class="ant-form-item ant-row"><nz-form-label
+                                                        _ngcontent-ng-c2100469606="" nzrequired=""
+                                                        nzfor="tienDienTrungBinh"
+                                                        class="ant-form-item-label ant-col"><label
+                                                            class="ant-form-item-required" for="tienDienTrungBinh">
+                                                            <h6 _ngcontent-ng-c2100469606="">Tiền điện trung bình/tháng
+                                                                (VND)</h6><!---->
+                                                        </label></nz-form-label><nz-form-control
+                                                        _ngcontent-ng-c2100469606="" nzerrortip="Vui lòng nhập"
+                                                        class="ant-form-item-control ant-col ng-tns-c2837444922-4">
+                                                        <div class="ant-form-item-control-input">
+                                                            <div class="ant-form-item-control-input-content"><input
+                                                                    _ngcontent-ng-c2100469606="" nz-input=""
+                                                                    placeholder="Nhập tiền điện"
+                                                                    class="ant-input ng-untouched ng-pristine ng-valid ant-input-stepperless"><!---->
+                                                            </div>
+                                                        </div><!----><!---->
+                                                    </nz-form-control></nz-form-item></div>
+                                            <div _ngcontent-ng-c2100469606="" class="d-flex flex-column mb-4">
+                                                <div _ngcontent-ng-c2100469606=""
+                                                    class="d-flex flex-row justify-content-between">
+                                                    <div _ngcontent-ng-c2100469606=""><b _ngcontent-ng-c2100469606="">Tỉ
+                                                            lệ dùng điện ban ngày (6h - 18h)</b></div>
+                                                    <div _ngcontent-ng-c2100469606=""><b _ngcontent-ng-c2100469606="">80
+                                                            <span _ngcontent-ng-c2100469606="">%</span></b></div>
+                                                </div>
+                                                <div _ngcontent-ng-c2100469606=""><nz-slider
+                                                        _ngcontent-ng-c2100469606=""
+                                                        class="ant-slider ng-untouched ng-pristine ng-valid">
+                                                        <div class="ant-slider-rail"></div><nz-slider-track>
+                                                            <div class="ant-slider-track"
+                                                                style="left: 0%; right: auto; width: 80%; visibility: visible;">
+                                                            </div>
+                                                        </nz-slider-track><!----><nz-slider-handle>
+                                                            <div tabindex="0" nz-tooltip="" class="ant-slider-handle"
+                                                                style="left: 80%; right: auto; transform: translateX(-50%);">
+                                                            </div><!---->
+                                                        </nz-slider-handle><!----><!---->
+                                                    </nz-slider>
+                                                    <div _ngcontent-ng-c2100469606=""
+                                                        class="d-flex justify-content-between"
+                                                        style="margin-top: -10px;">
+                                                        <div _ngcontent-ng-c2100469606="" class="text-secondary">0 <span
+                                                                _ngcontent-ng-c2100469606="">%</span></div>
+                                                        <div _ngcontent-ng-c2100469606="" class="text-secondary">100
+                                                            <span _ngcontent-ng-c2100469606="">%</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div _ngcontent-ng-c2100469606="" class="d-flex justify-content-center">
+                                                <button _ngcontent-ng-c2100469606="" nz-button="" nztype="primary"
+                                                    nzshape="round" nzsize="large"
+                                                    class="ant-btn ant-btn-primary ant-btn-round ant-btn-lg"><!----><span>
+                                                        Xem bảng phân tích </span></button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!----><!---->
+        </app-solar-calculator><!----></app-root>
+    <link rel="modulepreload" href="./js/chunk-IN2A57WK.js">
+    <script src="./js/polyfills-MH2GNY63.js" type="module"></script>
+    <script src="./js/main-EXZMURG6.js" type="module"></script>
+</body>
+
+</html>
