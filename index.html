@@ -1,425 +1,590 @@
-<html style="overflow: hidden;">
-
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-    <meta charset="utf-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VietValue — Quản lý User</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f5f3;
+    --surface: #ffffff;
+    --card: #ffffff;
+    --border: #e0deda;
+    --accent: #111111;
+    --accent2: #444444;
+    --gold: #111111;
+    --text: #111111;
+    --muted: #888888;
+    --danger: #cc2200;
+    --success: #1a7a1a;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Be Vietnam Pro', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-    <style>
-        html,
-        body {
-            background: #ffffff !important;
-        }
-        .call-to-action-button {
-            display: none !important;
-        }
-        :root {
-            --bs-blue: #0d6efd;
-            --bs-indigo: #6610f2;
-            --bs-purple: #6f42c1;
-            --bs-pink: #d63384;
-            --bs-red: #dc3545;
-            --bs-orange: #fd7e14;
-            --bs-yellow: #ffc107;
-            --bs-green: #198754;
-            --bs-teal: #20c997;
-            --bs-cyan: #0dcaf0;
-            --bs-black: #000;
-            --bs-white: #fff;
-            --bs-gray: #6c757d;
-            --bs-gray-dark: #343a40;
-            --bs-gray-100: #f8f9fa;
-            --bs-gray-200: #e9ecef;
-            --bs-gray-300: #dee2e6;
-            --bs-gray-400: #ced4da;
-            --bs-gray-500: #adb5bd;
-            --bs-gray-600: #6c757d;
-            --bs-gray-700: #495057;
-            --bs-gray-800: #343a40;
-            --bs-gray-900: #212529;
-            --bs-primary: #0d6efd;
-            --bs-secondary: #6c757d;
-            --bs-success: #198754;
-            --bs-info: #0dcaf0;
-            --bs-warning: #ffc107;
-            --bs-danger: #dc3545;
-            --bs-light: #f8f9fa;
-            --bs-dark: #212529;
-            --bs-primary-rgb: 13, 110, 253;
-            --bs-secondary-rgb: 108, 117, 125;
-            --bs-success-rgb: 25, 135, 84;
-            --bs-info-rgb: 13, 202, 240;
-            --bs-warning-rgb: 255, 193, 7;
-            --bs-danger-rgb: 220, 53, 69;
-            --bs-light-rgb: 248, 249, 250;
-            --bs-dark-rgb: 33, 37, 41;
-            --bs-primary-text-emphasis: #052c65;
-            --bs-secondary-text-emphasis: #2b2f32;
-            --bs-success-text-emphasis: #0a3622;
-            --bs-info-text-emphasis: #055160;
-            --bs-warning-text-emphasis: #664d03;
-            --bs-danger-text-emphasis: #58151c;
-            --bs-light-text-emphasis: #495057;
-            --bs-dark-text-emphasis: #495057;
-            --bs-primary-bg-subtle: #cfe2ff;
-            --bs-secondary-bg-subtle: #e2e3e5;
-            --bs-success-bg-subtle: #d1e7dd;
-            --bs-info-bg-subtle: #cff4fc;
-            --bs-warning-bg-subtle: #fff3cd;
-            --bs-danger-bg-subtle: #f8d7da;
-            --bs-light-bg-subtle: #fcfcfd;
-            --bs-dark-bg-subtle: #ced4da;
-            --bs-primary-border-subtle: #9ec5fe;
-            --bs-secondary-border-subtle: #c4c8cb;
-            --bs-success-border-subtle: #a3cfbb;
-            --bs-info-border-subtle: #9eeaf9;
-            --bs-warning-border-subtle: #ffe69c;
-            --bs-danger-border-subtle: #f1aeb5;
-            --bs-light-border-subtle: #e9ecef;
-            --bs-dark-border-subtle: #adb5bd;
-            --bs-white-rgb: 255, 255, 255;
-            --bs-black-rgb: 0, 0, 0;
-            --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
-            --bs-body-font-family: var(--bs-font-sans-serif);
-            --bs-body-font-size: 1rem;
-            --bs-body-font-weight: 400;
-            --bs-body-line-height: 1.5;
-            --bs-body-color: #212529;
-            --bs-body-color-rgb: 33, 37, 41;
-            --bs-body-bg: #fff;
-            --bs-body-bg-rgb: 255, 255, 255;
-            --bs-emphasis-color: #000;
-            --bs-emphasis-color-rgb: 0, 0, 0;
-            --bs-secondary-color: rgba(33, 37, 41, .75);
-            --bs-secondary-color-rgb: 33, 37, 41;
-            --bs-secondary-bg: #e9ecef;
-            --bs-secondary-bg-rgb: 233, 236, 239;
-            --bs-tertiary-color: rgba(33, 37, 41, .5);
-            --bs-tertiary-color-rgb: 33, 37, 41;
-            --bs-tertiary-bg: #f8f9fa;
-            --bs-tertiary-bg-rgb: 248, 249, 250;
-            --bs-heading-color: inherit;
-            --bs-link-color: #0d6efd;
-            --bs-link-color-rgb: 13, 110, 253;
-            --bs-link-decoration: underline;
-            --bs-link-hover-color: #0a58ca;
-            --bs-link-hover-color-rgb: 10, 88, 202;
-            --bs-code-color: #d63384;
-            --bs-highlight-color: #212529;
-            --bs-highlight-bg: #fff3cd;
-            --bs-border-width: 1px;
-            --bs-border-style: solid;
-            --bs-border-color: #dee2e6;
-            --bs-border-color-translucent: rgba(0, 0, 0, .175);
-            --bs-border-radius: .375rem;
-            --bs-border-radius-sm: .25rem;
-            --bs-border-radius-lg: .5rem;
-            --bs-border-radius-xl: 1rem;
-            --bs-border-radius-xxl: 2rem;
-            --bs-border-radius-2xl: var(--bs-border-radius-xxl);
-            --bs-border-radius-pill: 50rem;
-            --bs-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
-            --bs-box-shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
-            --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
-            --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, .075);
-            --bs-focus-ring-width: .25rem;
-            --bs-focus-ring-opacity: .25;
-            --bs-focus-ring-color: rgba(13, 110, 253, .25);
-            --bs-form-valid-color: #198754;
-            --bs-form-valid-border-color: #198754;
-            --bs-form-invalid-color: #dc3545;
-            --bs-form-invalid-border-color: #dc3545
-        }
+  header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    padding: 18px 36px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo-mark {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: #111111;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Mono', monospace; font-weight: 700; font-size: 14px; color: #fff;
+  }
+  .logo-text { font-size: 18px; font-weight: 800; }
+  .logo-text span { color: #111111; }
+  header nav { display: flex; gap: 8px; }
+  .btn {
+    padding: 9px 20px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    cursor: pointer; border: none; font-family: inherit; transition: all .2s;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .btn-primary { background: #111111; color: #ffffff; }
+  .btn-primary:hover { background: #333333; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+  .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+  .btn-ghost:hover { color: var(--text); border-color: #111111; }
+  .btn-danger { background: #cc2200; color: #fff; }
+  .btn-danger:hover { background: #ff6685; }
+  .btn-sm { padding: 6px 14px; font-size: 12px; }
 
-        @media (prefers-reduced-motion:no-preference) {
-            :root {
-                scroll-behavior: smooth
-            }
-        }
+  .layout { display: grid; grid-template-columns: 280px 1fr; min-height: calc(100vh - 73px); }
 
-        body {
-            margin: 0;
-            font-family: var(--bs-body-font-family);
-            font-size: var(--bs-body-font-size);
-            font-weight: var(--bs-body-font-weight);
-            line-height: var(--bs-body-line-height);
-            color: var(--bs-body-color);
-            text-align: var(--bs-body-text-align);
-            background-color: var(--bs-body-bg);
-            -webkit-text-size-adjust: 100%;
-            -webkit-tap-highlight-color: transparent
-        }
+  .sidebar {
+    background: var(--surface); border-right: 1px solid var(--border);
+    padding: 28px 20px; display: flex; flex-direction: column; gap: 6px;
+    overflow-y: auto; max-height: calc(100vh - 73px);
+  }
+  .sidebar-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--muted);
+    text-transform: uppercase; padding: 0 12px; margin-bottom: 8px;
+  }
+  .user-item {
+    padding: 12px 14px; border-radius: 10px; cursor: pointer;
+    transition: all .18s; border: 1px solid transparent;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .user-item:hover { background: var(--card); border-color: var(--border); }
+  .user-item.active { background: #f0f0ee; border-color: #999999; }
+  .user-avatar {
+    width: 36px; height: 36px; border-radius: 9px;
+    background: #111111;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px; color: #fff; flex-shrink: 0;
+  }
+  .user-info-mini { flex: 1; min-width: 0; }
+  .user-name-mini { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .user-role-mini { font-size: 11px; color: var(--muted); }
+  .user-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; background: #f0f0ee; color: #111111; flex-shrink: 0; }
+  .empty-sidebar { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+  .empty-sidebar .icon { font-size: 32px; margin-bottom: 12px; }
 
-        :root {
-            --bs-breakpoint-xs: 0;
-            --bs-breakpoint-sm: 576px;
-            --bs-breakpoint-md: 768px;
-            --bs-breakpoint-lg: 992px;
-            --bs-breakpoint-xl: 1200px;
-            --bs-breakpoint-xxl: 1400px
-        }
+  main { padding: 36px; overflow-y: auto; max-height: calc(100vh - 73px); }
+  .page { display: none; }
+  .page.active { display: block; }
 
-        body {
-            font-feature-settings: "tnum";
-            font-size: 14px
-        }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px 22px; position: relative; overflow: hidden;
+  }
+  .stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #111111; }
+  .stat-value { font-size: 32px; font-weight: 800; font-family: 'Space Mono', monospace; color: #111111; }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 500; }
 
-        html {
-            -webkit-tap-highlight-color: transparent
-        }
+  .form-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 28px; }
+  .form-card h2 { font-size: 20px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  .form-card h2 .tag { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: #f0f0ee; color: #111111; letter-spacing: .5px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group.full { grid-column: 1 / -1; }
+  label { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; }
+  input, textarea, select {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 9px;
+    color: var(--text); font-family: inherit; font-size: 14px; padding: 11px 14px;
+    transition: border-color .2s, box-shadow .2s; outline: none; -webkit-appearance: none;
+  }
+  input:focus, textarea:focus, select:focus { border-color: #111111; box-shadow: 0 0 0 3px rgba(0,0,0,.08); }
+  select option { background: var(--surface); }
+  textarea { resize: vertical; min-height: 80px; }
 
-        body,
-        html {
-            width: 100%;
-            height: 100%
-        }
+  .custom-fields { margin-top: 24px; }
+  .custom-fields-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .custom-fields-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .custom-field-item {
+    display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px;
+    align-items: end; margin-bottom: 12px; padding: 14px;
+    background: var(--surface); border-radius: 10px; border: 1px solid var(--border);
+  }
+  .remove-field {
+    background: rgba(255,77,109,.1); border: 1px solid rgba(255,77,109,.3); color: var(--danger);
+    border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 16px;
+    transition: all .2s; display: flex; align-items: center; justify-content: center;
+  }
+  .remove-field:hover { background: #cc2200; color: #fff; }
 
-        *,
-        :after,
-        :before {
-            box-sizing: border-box
-        }
+  .domain-config {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px; margin-bottom: 10px; display: flex; align-items: center; gap: 12px;
+  }
+  .domain-config label { min-width: 80px; margin: 0; white-space: nowrap; }
+  .domain-config input { flex: 1; }
+  .domain-preview { font-family: 'Space Mono', monospace; font-size: 11px; color: #111111; background: #f0f0ee; padding: 10px 14px; border-radius: 8px; margin-top: 8px; word-break: break-all; }
 
-        html {
-            font-family: sans-serif;
-            line-height: 1.15;
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-            -ms-overflow-style: scrollbar;
-            --antd-wave-shadow-color: #1890ff;
-            --scroll-bar: 0
-        }
+  .form-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji"
-        }
+  .user-detail-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 28px 32px; margin-bottom: 24px;
+  }
+  .user-detail-left { display: flex; align-items: center; gap: 20px; }
+  .user-avatar-lg {
+    width: 72px; height: 72px; border-radius: 18px;
+    background: #111111;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 24px; color: #fff;
+  }
+  .user-detail-name { font-size: 24px; font-weight: 800; }
+  .user-detail-role { font-size: 14px; color: var(--muted); margin-top: 4px; }
+  .user-detail-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
-        @-ms-viewport {
-            width: device-width
-        }
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .detail-section { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+  .detail-section h3 { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; }
+  .detail-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); gap: 16px; }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-key { font-size: 12px; color: var(--muted); font-weight: 500; flex-shrink: 0; }
+  .detail-val { font-size: 13px; font-weight: 600; text-align: right; word-break: break-all; }
+  .detail-val a { color: #111111; text-decoration: underline; }
+  .detail-val a:hover { text-decoration: underline; }
 
-        body {
-            margin: 0;
-            color: #000000d9;
-            font-variant: tabular-nums;
-            line-height: 1.5715;
-            background-color: #fff
-        }
+  .qr-section { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .qr-section h3 { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; align-self: flex-start; }
+  #qr-container canvas, #qr-container img { border-radius: 12px; padding: 12px; background: #fff; }
+  .qr-link { font-family: 'Space Mono', monospace; font-size: 11px; color: #111111; background: #f0f0ee; padding: 10px 16px; border-radius: 8px; word-break: break-all; text-align: center; width: 100%; }
+  .copy-btn { width: 100%; padding: 10px; background: #f0f0ee; border: 1px solid #d0d0cc; color: #111111; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; font-family: inherit; transition: all .2s; }
+  .copy-btn:hover { background: #111111; color: #ffffff; }
 
-        body {
-            background-color: #f8f8f8
-        }
-    </style>
-    <link rel="stylesheet" href="./css/styles-OWIPSSO6.css" media="all" onload="this.media='all'"><noscript>
-        <link rel="stylesheet" href="./css/styles-OWIPSSO6.css">
-    </noscript>
-    <style type="text/css"></style>
+  #profile-page { background: #f5f5f3; min-height: 100vh; padding: 40px 20px; display: none; align-items: center; justify-content: center; flex-direction: column; }
+  .profile-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 40px; max-width: 480px; width: 100%; text-align: center; }
+  .profile-card .avatar { width: 90px; height: 90px; border-radius: 22px; margin: 0 auto 20px; background: #111111; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 800; color: #fff; }
+  .profile-card h1 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+  .profile-card .role { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
+  .pf-row { display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+  .pf-icon { font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+  .pf-label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+  .pf-val { font-size: 14px; font-weight: 600; margin-top: 2px; }
+  .pf-val a { color: #111111; text-decoration: underline; }
+
+  #toast { position: fixed; bottom: 28px; right: 28px; background: #111111; color: #ffffff; padding: 12px 22px; border-radius: 10px; font-size: 13px; font-weight: 700; transform: translateY(80px); opacity: 0; transition: all .3s; z-index: 999; }
+  #toast.show { transform: translateY(0); opacity: 1; }
+
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 200; align-items: center; justify-content: center; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 32px; width: 90%; max-width: 500px; animation: slideUp .25s ease; }
+  @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal h3 { font-size: 18px; font-weight: 800; margin-bottom: 20px; }
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px; }
+
+  .search-bar { display: flex; gap: 12px; margin-bottom: 28px; align-items: center; }
+  .search-bar input { flex: 1; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .detail-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
-
 <body>
-    <app-root _nghost-ng-c3984273398="" ng-version="18.2.13"><router-outlet
-            _ngcontent-ng-c3984273398=""></router-outlet><app-solar-calculator _nghost-ng-c2100469606="">
-            <div _ngcontent-ng-c2100469606="">
-                <div _ngcontent-ng-c2100469606="" class="container mt-5">
-                    <div _ngcontent-ng-c2100469606=""
-                        class="d-flex flex-column justify-content-center align-items-center">
-                        <h5 _ngcontent-ng-c2100469606=""><img _ngcontent-ng-c2100469606="" width="30"
-                                src="https://dmtsolar.com/template/dmt/icons/dmt_favicon_180.png"> DMT Solar</h5>
-                        <h3 _ngcontent-ng-c2100469606="">Công Cụ Khảo Sát - Tính Chi Phí Lắp Điện Năng Lượng Mặt Trời Áp
-                            Mái</h3>
-                    </div>
-                </div>
-                <div _ngcontent-ng-c2100469606="" class="container mt-2">
-                    <div _ngcontent-ng-c2100469606="" class="card">
-                        <div _ngcontent-ng-c2100469606="" class="card-body p-3 p-md-5">
-                            <div _ngcontent-ng-c2100469606="" class="row">
-                                <div _ngcontent-ng-c2100469606="" class="col-12 col-md-8 mx-auto">
-                                    <div _ngcontent-ng-c2100469606="">
-                                        <form _ngcontent-ng-c2100469606="" novalidate="" nz-form="" nzlayout="vertical"
-                                            class="ant-form ng-untouched ng-pristine ng-valid ant-form-vertical">
-                                            <div _ngcontent-ng-c2100469606="" class="d-flex flex-column mb-4">
-                                                <div _ngcontent-ng-c2100469606="" class="mb-2">
-                                                    <h6 _ngcontent-ng-c2100469606="">Địa chỉ lắp đặt</h6>
-                                                </div>
-                                                <div _ngcontent-ng-c2100469606="" class="row">
-                                                    <div _ngcontent-ng-c2100469606="" class="col-12 col-md-4 mb-2">
-                                                        <div _ngcontent-ng-c2100469606="" class="mb-2">Tỉnh/Thành:</div>
-                                                        <nz-select _ngcontent-ng-c2100469606=""
-                                                            nzplaceholder="Nhập tỉnh/thành" nzsize="large"
-                                                            nzshowsearch=""
-                                                            class="ant-select w-100 ant-select-lg ant-select-show-arrow ant-select-show-search ant-select-single ng-untouched ng-pristine ng-valid ng-tns-c364634890-0"><nz-select-top-control
-                                                                cdkoverlayorigin=""
-                                                                class="ant-select-selector"><nz-select-search
-                                                                    class="ant-select-selection-search"><input
-                                                                        autocomplete="off"
-                                                                        class="ant-select-selection-search-input ng-untouched ng-pristine ng-valid"><!----></nz-select-search><!----><!----><!----><nz-select-placeholder
-                                                                    class="ant-select-selection-placeholder"> Nhập
-                                                                    tỉnh/thành
-                                                                    <!----><!----></nz-select-placeholder><!----></nz-select-top-control><nz-select-arrow
-                                                                class="ant-select-arrow"><!----><!----><!----><span
-                                                                    nz-icon="" nztype="down"
-                                                                    class="anticon anticon-down"><svg
-                                                                        viewBox="64 64 896 896" focusable="false"
-                                                                        fill="currentColor" width="1em" height="1em"
-                                                                        data-icon="down" aria-hidden="true">
-                                                                        <path
-                                                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                                        </path>
-                                                                    </svg></span><!----><!----><!----><!----><!----><!----></nz-select-arrow><!----><!----><!----></nz-select>
-                                                    </div>
-                                                    <div _ngcontent-ng-c2100469606="" class="col-12 col-md-4 mb-2">
-                                                        <div _ngcontent-ng-c2100469606="" class="mb-2">Quận/Huyện:</div>
-                                                        <nz-select _ngcontent-ng-c2100469606=""
-                                                            nzplaceholder="Nhập quận huyện" nzsize="large"
-                                                            nzshowsearch=""
-                                                            class="ant-select w-100 ant-select-lg ant-select-show-arrow ant-select-show-search ant-select-single ng-untouched ng-pristine ng-valid ng-tns-c364634890-1"><nz-select-top-control
-                                                                cdkoverlayorigin=""
-                                                                class="ant-select-selector"><nz-select-search
-                                                                    class="ant-select-selection-search"><input
-                                                                        autocomplete="off"
-                                                                        class="ant-select-selection-search-input ng-untouched ng-pristine ng-valid"><!----></nz-select-search><!----><!----><!----><nz-select-placeholder
-                                                                    class="ant-select-selection-placeholder"> Nhập quận
-                                                                    huyện
-                                                                    <!----><!----></nz-select-placeholder><!----></nz-select-top-control><nz-select-arrow
-                                                                class="ant-select-arrow"><!----><!----><!----><span
-                                                                    nz-icon="" nztype="down"
-                                                                    class="anticon anticon-down"><svg
-                                                                        viewBox="64 64 896 896" focusable="false"
-                                                                        fill="currentColor" width="1em" height="1em"
-                                                                        data-icon="down" aria-hidden="true">
-                                                                        <path
-                                                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                                        </path>
-                                                                    </svg></span><!----><!----><!----><!----><!----><!----></nz-select-arrow><!----><!----><!----></nz-select>
-                                                    </div>
-                                                    <div _ngcontent-ng-c2100469606="" class="col-12 col-md-4 mb-2">
-                                                        <div _ngcontent-ng-c2100469606="" class="mb-2">Phường/Xã:</div>
-                                                        <nz-select _ngcontent-ng-c2100469606=""
-                                                            nzplaceholder="Nhập phường xã" nzsize="large"
-                                                            nzshowsearch=""
-                                                            class="ant-select w-100 ant-select-lg ant-select-show-arrow ant-select-show-search ant-select-single ng-untouched ng-pristine ng-valid ng-tns-c364634890-2"><nz-select-top-control
-                                                                cdkoverlayorigin=""
-                                                                class="ant-select-selector"><nz-select-search
-                                                                    class="ant-select-selection-search"><input
-                                                                        autocomplete="off"
-                                                                        class="ant-select-selection-search-input ng-untouched ng-pristine ng-valid"><!----></nz-select-search><!----><!----><!----><nz-select-placeholder
-                                                                    class="ant-select-selection-placeholder"> Nhập
-                                                                    phường xã
-                                                                    <!----><!----></nz-select-placeholder><!----></nz-select-top-control><nz-select-arrow
-                                                                class="ant-select-arrow"><!----><!----><!----><span
-                                                                    nz-icon="" nztype="down"
-                                                                    class="anticon anticon-down"><svg
-                                                                        viewBox="64 64 896 896" focusable="false"
-                                                                        fill="currentColor" width="1em" height="1em"
-                                                                        data-icon="down" aria-hidden="true">
-                                                                        <path
-                                                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                                        </path>
-                                                                    </svg></span><!----><!----><!----><!----><!----><!----></nz-select-arrow><!----><!----><!----></nz-select>
-                                                    </div>
-                                                </div>
-                                            </div><nz-form-item _ngcontent-ng-c2100469606=""
-                                                class="ant-form-item ant-row mb-4"><nz-form-label
-                                                    _ngcontent-ng-c2100469606="" nzrequired="" nzfor="emails"
-                                                    class="ant-form-item-label ant-col"><label
-                                                        class="ant-form-item-required" for="emails">
-                                                        <h6 _ngcontent-ng-c2100469606="">Mục đích sử dụng điện</h6>
-                                                        <!---->
-                                                    </label></nz-form-label><nz-form-control
-                                                    _ngcontent-ng-c2100469606="" nzerrortip="Vui lòng chọn"
-                                                    class="ant-form-item-control ant-col ng-tns-c2837444922-3">
-                                                    <div class="ant-form-item-control-input">
-                                                        <div class="ant-form-item-control-input-content"><nz-radio-group
-                                                                _ngcontent-ng-c2100469606="" nzsize="large"
-                                                                nzbuttonstyle="solid"
-                                                                class="ant-radio-group ant-radio-group-large ant-radio-group-solid ng-untouched ng-pristine ng-valid"><label
-                                                                    _ngcontent-ng-c2100469606="" nz-radio-button=""
-                                                                    nzvalue="SinhHoat"
-                                                                    class="ant-radio-wrapper-in-form-item ant-radio-button-wrapper ant-radio-button-wrapper-checked"><span
-                                                                        class="ant-radio-button ant-radio-button-checked"><input
-                                                                            type="radio"
-                                                                            class="ant-radio-button-input"><span
-                                                                            class="ant-radio-button-inner"></span></span><span>Sinh
-                                                                        hoạt</span></label><label
-                                                                    _ngcontent-ng-c2100469606="" nz-radio-button=""
-                                                                    nzvalue="KinhDoanh"
-                                                                    class="ant-radio-wrapper-in-form-item ant-radio-button-wrapper"><span
-                                                                        class="ant-radio-button"><input type="radio"
-                                                                            class="ant-radio-button-input"><span
-                                                                            class="ant-radio-button-inner"></span></span><span>Kinh
-                                                                        doanh</span></label></nz-radio-group></div>
-                                                    </div><!----><!---->
-                                                </nz-form-control></nz-form-item>
-                                            <div _ngcontent-ng-c2100469606="" class="mb-4"><nz-form-item
-                                                    _ngcontent-ng-c2100469606=""
-                                                    class="ant-form-item ant-row"><nz-form-label
-                                                        _ngcontent-ng-c2100469606="" nzrequired=""
-                                                        nzfor="tienDienTrungBinh"
-                                                        class="ant-form-item-label ant-col"><label
-                                                            class="ant-form-item-required" for="tienDienTrungBinh">
-                                                            <h6 _ngcontent-ng-c2100469606="">Tiền điện trung bình/tháng
-                                                                (VND)</h6><!---->
-                                                        </label></nz-form-label><nz-form-control
-                                                        _ngcontent-ng-c2100469606="" nzerrortip="Vui lòng nhập"
-                                                        class="ant-form-item-control ant-col ng-tns-c2837444922-4">
-                                                        <div class="ant-form-item-control-input">
-                                                            <div class="ant-form-item-control-input-content"><input
-                                                                    _ngcontent-ng-c2100469606="" nz-input=""
-                                                                    placeholder="Nhập tiền điện"
-                                                                    class="ant-input ng-untouched ng-pristine ng-valid ant-input-stepperless"><!---->
-                                                            </div>
-                                                        </div><!----><!---->
-                                                    </nz-form-control></nz-form-item></div>
-                                            <div _ngcontent-ng-c2100469606="" class="d-flex flex-column mb-4">
-                                                <div _ngcontent-ng-c2100469606=""
-                                                    class="d-flex flex-row justify-content-between">
-                                                    <div _ngcontent-ng-c2100469606=""><b _ngcontent-ng-c2100469606="">Tỉ
-                                                            lệ dùng điện ban ngày (6h - 18h)</b></div>
-                                                    <div _ngcontent-ng-c2100469606=""><b _ngcontent-ng-c2100469606="">80
-                                                            <span _ngcontent-ng-c2100469606="">%</span></b></div>
-                                                </div>
-                                                <div _ngcontent-ng-c2100469606=""><nz-slider
-                                                        _ngcontent-ng-c2100469606=""
-                                                        class="ant-slider ng-untouched ng-pristine ng-valid">
-                                                        <div class="ant-slider-rail"></div><nz-slider-track>
-                                                            <div class="ant-slider-track"
-                                                                style="left: 0%; right: auto; width: 80%; visibility: visible;">
-                                                            </div>
-                                                        </nz-slider-track><!----><nz-slider-handle>
-                                                            <div tabindex="0" nz-tooltip="" class="ant-slider-handle"
-                                                                style="left: 80%; right: auto; transform: translateX(-50%);">
-                                                            </div><!---->
-                                                        </nz-slider-handle><!----><!---->
-                                                    </nz-slider>
-                                                    <div _ngcontent-ng-c2100469606=""
-                                                        class="d-flex justify-content-between"
-                                                        style="margin-top: -10px;">
-                                                        <div _ngcontent-ng-c2100469606="" class="text-secondary">0 <span
-                                                                _ngcontent-ng-c2100469606="">%</span></div>
-                                                        <div _ngcontent-ng-c2100469606="" class="text-secondary">100
-                                                            <span _ngcontent-ng-c2100469606="">%</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div _ngcontent-ng-c2100469606="" class="d-flex justify-content-center">
-                                                <button _ngcontent-ng-c2100469606="" nz-button="" nztype="primary"
-                                                    nzshape="round" nzsize="large"
-                                                    class="ant-btn ant-btn-primary ant-btn-round ant-btn-lg"><!----><span>
-                                                        Xem bảng phân tích </span></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!----><!---->
-        </app-solar-calculator><!----></app-root>
-    <link rel="modulepreload" href="./js/chunk-IN2A57WK.js">
-    <script src="./js/polyfills-MH2GNY63.js" type="module"></script>
-    <script src="./js/main-EXZMURG6.js" type="module"></script>
-</body>
 
+<div id="profile-page"></div>
+
+<div id="dashboard">
+<header>
+  <div class="logo">
+    <div class="logo-mark">VV</div>
+    <div class="logo-text">Viet<span>Value</span> <span style="color:var(--muted);font-weight:400;font-size:14px;margin-left:4px">/ Dashboard</span></div>
+  </div>
+  <nav>
+    <button class="btn btn-ghost" onclick="showPage('list')">⊞ Danh sách</button>
+    <button class="btn btn-ghost" onclick="exportJSON()">⬇ Xuất JSON</button>
+    <button class="btn btn-primary" onclick="showPage('create')">+ Tạo User</button>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">Users</div>
+    <div id="sidebar-list">
+      <div class="empty-sidebar"><div class="icon">👤</div>Chưa có user nào.</div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- LIST -->
+    <div class="page active" id="page-list">
+      <div class="stats">
+        <div class="stat-card"><div class="stat-value" id="stat-total">0</div><div class="stat-label">Tổng Users</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-gd">0</div><div class="stat-label">Giám đốc</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-pgd">0</div><div class="stat-label">Phó Giám đốc</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-other">0</div><div class="stat-label">Khác</div></div>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="🔍  Tìm kiếm theo tên, email, điện thoại..." oninput="renderList()">
+      </div>
+      <div id="user-list-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;"></div>
+    </div>
+
+    <!-- CREATE/EDIT -->
+    <div class="page" id="page-create">
+      <div class="form-card">
+        <h2 id="form-title">Tạo User Mới <span class="tag">NEW</span></h2>
+        <div style="margin-bottom:24px;">
+          <div class="domain-config">
+            <label>🌐 Domain</label>
+            <input type="text" id="domain-input" placeholder="https://domain.com" value="https://domain.com" oninput="updateDomainPreview()">
+          </div>
+          <div class="domain-preview" id="domain-preview">https://domain.com/thongtinuser</div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group"><label>Tên đầy đủ *</label><input type="text" id="f-name" placeholder="VD: Luật sư Vũ Văn Tú" oninput="updateDomainPreview()"></div>
+          <div class="form-group"><label>Slug URL *</label><input type="text" id="f-slug" placeholder="VD: vuvuntu" oninput="updateDomainPreview()"></div>
+          <div class="form-group"><label>Công ty / Tổ chức</label><input type="text" id="f-company" placeholder="VD: Công ty Luật TNHH Vietvalue"></div>
+          <div class="form-group"><label>Chức danh</label><input type="text" id="f-role" placeholder="VD: Giám đốc"></div>
+          <div class="form-group"><label>Điện thoại 1</label><input type="text" id="f-phone1" placeholder="0912 825 326"></div>
+          <div class="form-group"><label>Điện thoại 2</label><input type="text" id="f-phone2" placeholder="(tuỳ chọn)"></div>
+          <div class="form-group"><label>Email</label><input type="email" id="f-email" placeholder="email@vietvalue.co"></div>
+          <div class="form-group"><label>Website</label><input type="text" id="f-website" placeholder="https://vietvalue.co"></div>
+          <div class="form-group"><label>Fanpage Facebook</label><input type="text" id="f-facebook" placeholder="https://facebook.com/..."></div>
+          <div class="form-group"><label>Zalo</label><input type="text" id="f-zalo" placeholder="Số Zalo hoặc link OA"></div>
+          <div class="form-group full"><label>Ghi chú</label><textarea id="f-note" placeholder="Thông tin bổ sung..."></textarea></div>
+        </div>
+        <div class="custom-fields">
+          <div class="custom-fields-header">
+            <div class="custom-fields-title">⚡ Trường tuỳ chỉnh <span style="background:#f0f0ee;color:#444444;font-size:11px;padding:3px 10px;border-radius:20px;" id="custom-count">0</span></div>
+            <button class="btn btn-ghost btn-sm" onclick="addCustomField()">+ Thêm trường</button>
+          </div>
+          <div id="custom-fields-container"></div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-ghost" onclick="showPage('list')">Huỷ</button>
+          <button class="btn btn-primary" onclick="saveUser()">💾 Lưu & Tạo QR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAIL -->
+    <div class="page" id="page-detail">
+      <div id="detail-content"></div>
+    </div>
+  </main>
+</div>
+</div>
+
+<div class="modal-overlay" id="confirm-modal">
+  <div class="modal">
+    <h3>⚠️ Xác nhận xoá</h3>
+    <p style="color:var(--muted);font-size:14px;">Bạn có chắc muốn xoá user này? Hành động không thể hoàn tác.</p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Huỷ</button>
+      <button class="btn btn-danger" id="confirm-delete-btn">Xoá</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast">✓ Thành công!</div>
+
+<script>
+const DB_KEY = 'vietvalue_users';
+let users = [];
+let editingId = null;
+
+function loadDB() {
+  try { users = JSON.parse(localStorage.getItem(DB_KEY)) || []; } catch { users = []; }
+}
+function saveDB() { localStorage.setItem(DB_KEY, JSON.stringify(users)); }
+
+function exportJSON() {
+  const blob = new Blob([JSON.stringify(users, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'users.json'; a.click();
+}
+
+function slugify(str) {
+  return str.toLowerCase()
+    .replace(/[àáạảãâầấậẩẫăằắặẳẵ]/g,'a').replace(/[èéẹẻẽêềếệểễ]/g,'e')
+    .replace(/[ìíịỉĩ]/g,'i').replace(/[òóọỏõôồốộổỗơờớợởỡ]/g,'o')
+    .replace(/[ùúụủũưừứựửữ]/g,'u').replace(/[ỳýỵỷỹ]/g,'y').replace(/đ/g,'d')
+    .replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').trim();
+}
+function initials(name) { return (name||'?').split(' ').map(w=>w[0]).slice(-2).join('').toUpperCase() || '?'; }
+function getVal(id) { return document.getElementById(id)?.value?.trim() || ''; }
+
+function showToast(msg) {
+  const t = document.getElementById('toast'); t.textContent = msg;
+  t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function updateDomainPreview() {
+  const domain = getVal('domain-input') || 'https://domain.com';
+  let slug = getVal('f-slug') || slugify(getVal('f-name')) || 'thongtinuser';
+  document.getElementById('domain-preview').textContent = domain + '/' + slug;
+}
+
+function addCustomField(label='', value='') {
+  const id = 'cf-' + Date.now() + Math.random().toString(36).slice(2);
+  const container = document.getElementById('custom-fields-container');
+  const div = document.createElement('div');
+  div.className = 'custom-field-item'; div.id = id;
+  div.innerHTML = `
+    <div class="form-group"><label>Tên trường</label><input type="text" placeholder="VD: Lĩnh vực" value="${label}" class="cf-label"></div>
+    <div class="form-group"><label>Giá trị</label><input type="text" placeholder="VD: Luật doanh nghiệp" value="${value}" class="cf-value"></div>
+    <button class="remove-field" onclick="document.getElementById('${id}').remove();updateCustomCount()">✕</button>
+  `;
+  container.appendChild(div);
+  updateCustomCount();
+}
+function updateCustomCount() {
+  document.getElementById('custom-count').textContent = document.querySelectorAll('.custom-field-item').length;
+}
+function getCustomFields() {
+  return Array.from(document.querySelectorAll('.custom-field-item')).map(item => ({
+    label: item.querySelector('.cf-label')?.value?.trim() || '',
+    value: item.querySelector('.cf-value')?.value?.trim() || ''
+  })).filter(f => f.label);
+}
+
+function saveUser() {
+  const name = getVal('f-name');
+  if (!name) { alert('Vui lòng nhập tên!'); return; }
+  let slug = getVal('f-slug') || slugify(name) || ('user-' + Date.now());
+  if (users.some(u => u.slug === slug && u.id !== editingId)) slug += '-' + Date.now();
+  const domain = getVal('domain-input') || 'https://domain.com';
+  const user = {
+    id: editingId || ('u' + Date.now()),
+    name, slug, url: domain + '/' + slug, domain,
+    company: getVal('f-company'), role: getVal('f-role'),
+    phone1: getVal('f-phone1'), phone2: getVal('f-phone2'),
+    email: getVal('f-email'), website: getVal('f-website'),
+    facebook: getVal('f-facebook'), zalo: getVal('f-zalo'),
+    note: getVal('f-note'), customFields: getCustomFields(),
+    createdAt: editingId ? (users.find(u=>u.id===editingId)?.createdAt || new Date().toISOString()) : new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  };
+  if (editingId) { const i = users.findIndex(u=>u.id===editingId); if(i!==-1) users[i]=user; }
+  else users.push(user);
+  saveDB(); renderAll(); editingId = null;
+  showToast('✓ Đã lưu thành công!');
+  showDetail(user.id);
+}
+
+function showPage(p) {
+  document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
+  document.getElementById('page-' + p).classList.add('active');
+  if (p === 'create' && !editingId) { clearForm(); updateDomainPreview(); }
+  if (p === 'list') renderList();
+}
+
+function clearForm() {
+  editingId = null;
+  ['f-name','f-slug','f-company','f-role','f-phone1','f-phone2','f-email','f-website','f-facebook','f-zalo','f-note'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
+  document.getElementById('custom-fields-container').innerHTML = '';
+  updateCustomCount();
+  document.getElementById('form-title').innerHTML = 'Tạo User Mới <span class="tag">NEW</span>';
+}
+
+function showDetail(id) {
+  const user = users.find(u => u.id === id); if (!user) return;
+  showPage('detail');
+  document.querySelectorAll('.user-item').forEach(el => el.classList.remove('active'));
+  document.querySelector(`[data-id="${id}"]`)?.classList.add('active');
+
+  const stdFields = [
+    { k:'🏢 Công ty', v:user.company },{ k:'💼 Chức danh', v:user.role },
+    { k:'📞 Điện thoại 1', v:user.phone1 },{ k:'📞 Điện thoại 2', v:user.phone2 },
+    { k:'✉️ Email', v:user.email, link:user.email?`mailto:${user.email}`:null },
+    { k:'🌐 Website', v:user.website, link:user.website },
+    { k:'📘 Facebook', v:user.facebook, link:user.facebook },
+    { k:'💬 Zalo', v:user.zalo },
+    { k:'📝 Ghi chú', v:user.note }
+  ].filter(f=>f.v);
+
+  const stdRows = stdFields.map(f=>`<div class="detail-row"><span class="detail-key">${f.k}</span><span class="detail-val">${f.link?`<a href="${f.link}" target="_blank">${f.v}</a>`:f.v}</span></div>`).join('');
+  const cfRows = (user.customFields||[]).map(cf=>`<div class="detail-row"><span class="detail-key">⚡ ${cf.label}</span><span class="detail-val">${cf.value}</span></div>`).join('');
+
+  document.getElementById('detail-content').innerHTML = `
+    <div class="user-detail-header">
+      <div class="user-detail-left">
+        <div class="user-avatar-lg">${initials(user.name)}</div>
+        <div>
+          <div class="user-detail-name">${user.name}</div>
+          <div class="user-detail-role">${user.role||''}${user.role&&user.company?' · ':''}${user.company||''}</div>
+          <div style="margin-top:8px;font-family:'Space Mono',monospace;font-size:11px;color:#111111;">/${user.slug}</div>
+        </div>
+      </div>
+      <div class="user-detail-actions">
+        <button class="btn btn-ghost btn-sm" onclick="editUser('${user.id}')">✏️ Sửa</button>
+        <button class="btn btn-danger btn-sm" onclick="confirmDelete('${user.id}')">🗑 Xoá</button>
+      </div>
+    </div>
+    <div class="detail-grid">
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div class="detail-section"><h3>Thông tin liên hệ</h3>${stdRows||'<div style="color:var(--muted);font-size:13px;">Chưa có thông tin.</div>'}</div>
+        ${cfRows?`<div class="detail-section"><h3>Trường tuỳ chỉnh</h3>${cfRows}</div>`:''}
+      </div>
+      <div class="qr-section">
+        <h3>QR Code & Link chia sẻ</h3>
+        <div id="qr-container"></div>
+        <div class="qr-link">${user.url}</div>
+        <button class="copy-btn" onclick="copyLink('${user.url}')">📋 Sao chép link</button>
+        <button class="copy-btn" style="background:rgba(123,97,255,.1);border-color:rgba(123,97,255,.3);color:#444444;margin-top:4px;" onclick="previewProfile('${user.id}')">👁 Xem trang cá nhân</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('qr-container').innerHTML = '';
+  new QRCode(document.getElementById('qr-container'), { text: user.url, width: 200, height: 200, colorDark: '#111111', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.H });
+}
+
+function copyLink(url) { navigator.clipboard.writeText(url).then(() => showToast('📋 Đã sao chép link!')); }
+
+function editUser(id) {
+  const u = users.find(x=>x.id===id); if(!u) return;
+  editingId = id;
+  document.getElementById('domain-input').value = u.domain||'https://domain.com';
+  document.getElementById('f-name').value = u.name||'';
+  document.getElementById('f-slug').value = u.slug||'';
+  document.getElementById('f-company').value = u.company||'';
+  document.getElementById('f-role').value = u.role||'';
+  document.getElementById('f-phone1').value = u.phone1||'';
+  document.getElementById('f-phone2').value = u.phone2||'';
+  document.getElementById('f-email').value = u.email||'';
+  document.getElementById('f-website').value = u.website||'';
+  document.getElementById('f-facebook').value = u.facebook||'';
+  document.getElementById('f-zalo').value = u.zalo||'';
+  document.getElementById('f-note').value = u.note||'';
+  document.getElementById('custom-fields-container').innerHTML='';
+  (u.customFields||[]).forEach(cf=>addCustomField(cf.label,cf.value));
+  document.getElementById('form-title').innerHTML='Chỉnh sửa User <span class="tag">EDIT</span>';
+  showPage('create'); updateDomainPreview();
+}
+
+function confirmDelete(id) {
+  document.getElementById('confirm-modal').classList.add('open');
+  document.getElementById('confirm-delete-btn').onclick = () => {
+    users = users.filter(u=>u.id!==id);
+    saveDB(); renderAll(); closeModal(); showPage('list');
+    showToast('🗑 Đã xoá user!');
+  };
+}
+function closeModal() { document.getElementById('confirm-modal').classList.remove('open'); }
+
+function renderSidebar() {
+  const c = document.getElementById('sidebar-list');
+  if (!users.length) { c.innerHTML='<div class="empty-sidebar"><div class="icon">👤</div>Chưa có user nào.</div>'; return; }
+  c.innerHTML = users.map((u,i)=>`
+    <div class="user-item" data-id="${u.id}" onclick="showDetail('${u.id}')">
+      <div class="user-avatar">${initials(u.name)}</div>
+      <div class="user-info-mini"><div class="user-name-mini">${u.name}</div><div class="user-role-mini">${u.role||'Không có chức danh'}</div></div>
+      <div class="user-badge">#${i+1}</div>
+    </div>`).join('');
+}
+
+function renderList() {
+  const q = (document.getElementById('search-input')?.value||'').toLowerCase();
+  const filtered = q ? users.filter(u=>[u.name,u.email,u.phone1,u.role].some(v=>v?.toLowerCase().includes(q))) : users;
+  const grid = document.getElementById('user-list-grid');
+  if (!filtered.length) {
+    grid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--muted);"><div style="font-size:40px;margin-bottom:16px;">${q?'🔍':'👥'}</div>${q?'Không tìm thấy kết quả.':'Chưa có user nào. Nhấn "+ Tạo User" để bắt đầu.'}</div>`; return;
+  }
+  grid.innerHTML = filtered.map(u=>`
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;cursor:pointer;transition:all .2s;"
+      onmouseover="this.style.borderColor='#111111'" onmouseout="this.style.borderColor='var(--border)'"
+      onclick="showDetail('${u.id}')">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+        <div class="user-avatar" style="width:48px;height:48px;border-radius:12px;font-size:16px;">${initials(u.name)}</div>
+        <div><div style="font-size:15px;font-weight:700;">${u.name}</div><div style="font-size:12px;color:var(--muted);">${u.role||''}${u.role&&u.company?' · ':''}${u.company||''}</div></div>
+      </div>
+      ${u.phone1?`<div style="font-size:12px;color:var(--muted);margin-bottom:4px;">📞 ${u.phone1}</div>`:''}
+      ${u.email?`<div style="font-size:12px;color:var(--muted);margin-bottom:4px;">✉️ ${u.email}</div>`:''}
+      <div style="margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;color:#111111;opacity:.7;">/${u.slug}</div>
+    </div>`).join('');
+}
+
+function renderStats() {
+  document.getElementById('stat-total').textContent = users.length;
+  document.getElementById('stat-gd').textContent = users.filter(u=>u.role?.toLowerCase().includes('giám đốc')&&!u.role?.toLowerCase().includes('phó')).length;
+  document.getElementById('stat-pgd').textContent = users.filter(u=>u.role?.toLowerCase().includes('phó')).length;
+  document.getElementById('stat-other').textContent = users.filter(u=>!u.role?.toLowerCase().includes('giám đốc')).length;
+}
+
+function renderAll() { renderSidebar(); renderList(); renderStats(); }
+
+function previewProfile(id) {
+  const u = users.find(x=>x.id===id); if(!u) return;
+  renderProfilePage(u);
+}
+
+function renderProfilePage(u) {
+  document.getElementById('dashboard').style.display='none';
+  const pp = document.getElementById('profile-page');
+  pp.style.display='flex';
+  const fields = [
+    u.company&&{icon:'🏢',label:'Công ty',val:u.company},
+    u.phone1&&{icon:'📞',label:'Điện thoại',val:u.phone1},
+    u.phone2&&{icon:'📞',label:'Điện thoại 2',val:u.phone2},
+    u.email&&{icon:'✉️',label:'Email',val:`<a href="mailto:${u.email}">${u.email}</a>`},
+    u.website&&{icon:'🌐',label:'Website',val:`<a href="${u.website}" target="_blank">${u.website}</a>`},
+    u.facebook&&{icon:'📘',label:'Facebook',val:`<a href="${u.facebook}" target="_blank">Xem Fanpage</a>`},
+    u.zalo&&{icon:'💬',label:'Zalo',val:u.zalo},
+    ...(u.customFields||[]).map(cf=>({icon:'⚡',label:cf.label,val:cf.value}))
+  ].filter(Boolean);
+  pp.innerHTML=`
+    <div style="position:fixed;top:16px;left:16px;">
+      <button class="btn btn-ghost btn-sm" onclick="closeProfile()">← Quay lại</button>
+    </div>
+    <div class="profile-card">
+      <div class="avatar">${initials(u.name)}</div>
+      <h1>${u.name}</h1>
+      <div class="role">${u.role||''}${u.role&&u.company?' · ':''}${u.company||''}</div>
+      <div class="profile-fields">
+        ${fields.map(f=>`<div class="pf-row"><div class="pf-icon">${f.icon}</div><div><div class="pf-label">${f.label}</div><div class="pf-val">${f.val}</div></div></div>`).join('')}
+      </div>
+      <div style="margin-top:24px;font-family:'Space Mono',monospace;font-size:10px;color:#888888;text-align:center;">${u.url}</div>
+    </div>`;
+}
+
+function closeProfile() {
+  document.getElementById('dashboard').style.display='block';
+  document.getElementById('profile-page').style.display='none';
+}
+
+function checkURLRouting() {
+  const slug = new URLSearchParams(window.location.search).get('u');
+  if (slug) {
+    const u = users.find(x=>x.slug===slug);
+    if (u) { document.getElementById('dashboard').style.display='none'; renderProfilePage(u); return true; }
+  }
+  return false;
+}
+
+loadDB();
+if (!checkURLRouting()) {
+  renderAll();
+  if (users.length) showDetail(users[0].id); else showPage('list');
+}
+</script>
+</body>
 </html>
